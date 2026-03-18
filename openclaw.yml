@@ -9,6 +9,7 @@ services:
     volumes:
       - /openclaw/config:/home/node/.openclaw
       - /openclaw/workspace:/home/node/.openclaw/workspace
+      - - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "18789:18789"  # Main gateway port
       - "18790:18790"  # Bridge port
