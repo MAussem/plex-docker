@@ -1,25 +1,25 @@
 services:
-      openclaw-gateway:
-      image: ghcr.io/openclaw/openclaw:latest
-      container_name: openclaw-gateway
-      environment:
-            - TZ=America/New_York  # Change to your timezone
-            - HOME=/home/node
-            - TERM=xterm-256color
-      volumes:
-            - /openclaw/config:/home/node/.openclaw
-            - /openclaw/workspace:/home/node/.openclaw/workspace
-      ports:
-            - "18789:18789"  # Main gateway port
-            - "18790:18790"  # Bridge port
-      init: true
-      restart: unless-stopped
-      command:
-            - "node"
-            - "dist/index.js"
-            - "gateway"
-            - "--bind"
-            - "lan"
-            - "--port"
-            - "18789"
-            - "--allow-unconfigured"
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    environment:
+      - TZ=America/New_York  # Change to your timezone
+      - HOME=/home/node
+      - TERM=xterm-256color
+    volumes:
+      - /openclaw/config:/home/node/.openclaw
+      - /openclaw/workspace:/home/node/.openclaw/workspace
+    ports:
+      - "18789:18789"  # Main gateway port
+      - "18790:18790"  # Bridge port
+    init: true
+    restart: unless-stopped
+    command:
+      - "node"
+      - "dist/index.js"
+      - "gateway"
+      - "--bind"
+      - "lan"
+      - "--port"
+      - "18789"
+      - "--allow-unconfigured"
